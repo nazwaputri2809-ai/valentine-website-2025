@@ -1,1 +1,139 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine? 💝</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(to right, #ffafbd, #ffc3a0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #ff4757;
+}
+
+button {
+    background: #ff6b6b;
+    border: none;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff8787;
+}
+
+#loveMeter {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Kevin Ray Tristan 💖</h1>
+    <h2 id="question">Do you like me?</h2>
+
+    <div id="buttons">
+        <button onclick="firstYes()">Yes</button>
+        <button onclick="firstNo()">No</button>
+    </div>
+
+    <div id="loveMeter"></div>
+</div>
+
+<script>
+function firstYes() {
+    document.getElementById("question").innerHTML = 
+    "I don't like you, I love you! ❤️<br><br>How much do you love me?";
+    
+    document.getElementById("buttons").innerHTML =
+    `<button onclick="increaseLove()">This much!</button>`;
+}
+
+function firstNo() {
+    alert("You can't say no 😝❤️");
+}
+
+let love = 0;
+
+function increaseLove() {
+    love += 100;
+    document.getElementById("loveMeter").innerHTML = love + "% ❤️";
+
+    if (love >= 1000) {
+        document.getElementById("question").innerHTML =
+        "To infinity and beyond! 🚀💝<br><br>Will you be my Valentine?";
+        
+        document.getElementById("buttons").innerHTML =
+        `<button onclick="finalYes()">Yes!</button>
+         <button onclick="runAway(this)">No</button>`;
+    }
+}
+
+function finalYes() {
+    document.getElementById("question").innerHTML =
+    "Yay! I'm the luckiest person... 💖<br>Now come get your gift 🎁💋";
+    
+    document.getElementById("buttons").innerHTML = "";
+}
+
+function runAway(btn) {
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * window.innerHeight + "px";
+    btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+// floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = ["❤️","💖","💝","💗","💓"][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+
+}, 500);
+</script>
+
+</body>
+</html>
