@@ -45,7 +45,7 @@ Note: Make sure you're logged into your GitHub account. If you don't have one, y
 Here's what you can customize in `config.js`:
 ```javascript
 // Basic Information
-valentineName: "Jade"                    // Your Valentine's name
+valentineName: "Kevin"                    // Your Valentine's name
 pageTitle: "Will You Be My Valentine? 💝" // Browser tab title
 
 // Floating Background Elements
@@ -170,7 +170,7 @@ music: {
 4. Choose your GitHub repository
 5. Click "Deploy site"
 6. Once deployed, click "Domain settings"
-7. Choose a custom domain (e.g., `my-valentine-2025.netlify.app`)
+7. Choose a custom domain (e.g., `my-valentine-2026.netlify.app`)
 
 ## 💡 Tips
 - Test the website before sending it to your Valentine
